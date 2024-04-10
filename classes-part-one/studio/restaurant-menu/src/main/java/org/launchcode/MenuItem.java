@@ -1,24 +1,24 @@
 package org.launchcode;
 
-import jdk.jfr.Category;
-
 import java.time.LocalDateTime;
-public class MenuItems {
+public class MenuItem {
     private String itemName;
     private String itemDescription;
     private double itemPrice;
-    private Category category;
-    private boolean isNew;
+    private Category.MealCategory category;
+
     private LocalDateTime creationDate;
 
-    public MenuItems(String itemName,
-                    String itemDescription, double itemPrice, Category category, boolean isNew) {
+    public MenuItem(String itemName,
+                    String itemDescription, double itemPrice, Category.MealCategory category) {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
         this.itemPrice = itemPrice;
         this.category = category;
-        this.isNew = isNew;
         this.creationDate = LocalDateTime.now();
+    }
+    public boolean isNew() {
+        return creationDate.isAfter(LocalDateTime.now().minusDays(30));
     }
 
     public String getItemName() {
@@ -45,21 +45,17 @@ public class MenuItems {
         this.itemPrice = itemPrice;
     }
 
-    public Category getCategory() {
+    public Category.MealCategory getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(Category.MealCategory category) {
         this.category = category;
     }
 
-    public boolean isNew() {
-        return isNew;
-    }
 
-    public void setNew(boolean aNew) {
-        isNew = aNew;
-    }
+
+
 
     public LocalDateTime getCreationDate() {
         return creationDate;
