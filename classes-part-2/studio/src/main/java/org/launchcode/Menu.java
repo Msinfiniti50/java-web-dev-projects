@@ -27,6 +27,15 @@ public class Menu {
     public ArrayList<MenuItem> getItems() {
         return items;
     }
+
+    @Override
+    public String toString() {
+        String output = "Menu last Updated: " + lastUpdated + '\n';
+                for (MenuItem item : items) {
+                    output += item.toString() + '\n';
+                }
+                return output;
+    }
 }
 
 
