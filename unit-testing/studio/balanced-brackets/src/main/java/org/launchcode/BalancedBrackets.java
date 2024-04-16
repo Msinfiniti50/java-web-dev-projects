@@ -1,5 +1,6 @@
 package org.launchcode;
 public class BalancedBrackets {
+
     /*
      * The function BalancedBrackets should return true if and only if
      * the input string has a set of "balanced" brackets.
@@ -24,10 +25,12 @@ public class BalancedBrackets {
         for (char ch : str.toCharArray()) {
             if (ch == '[') {
                 brackets++;
-            } else if (ch == ']') {
+            } else if (brackets < 0) {
+
+                    return false;
+                }
                 brackets--;
             }
-        }
+
         return brackets == 0;
-    }
-}
+    }}
